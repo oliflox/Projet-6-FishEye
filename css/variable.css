@@ -1,0 +1,50 @@
+:root {
+    --red: #901C1C;
+    --lightred: #D3573C;
+    --grey: #525252;
+    --lightgrey: #FAFAFA;
+
+    --white: #FFFFFF;
+    --black: #000000;
+
+    --spacing-xxs: 0.25rem;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 1.5rem;
+    --spacing-xxl: 2rem;
+    --spacing-xxxl: 2.5rem;
+    --spacing-xxxxl: 3rem;
+
+    --font-title: 22px;
+    --font-subtitle: 18px;
+    --font-md: 16px;
+    --font-sm: 14px;
+    --font-xs: 12px;
+
+    --font-bold: 700;
+    --font-normal: 400;
+    --font-light: 300;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+}
+
+.button {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-subtitle);
+    font-weight: var(--font-bold);
+}
+
+.button:hover {
+    background-color: var(--lightred);
+    color: var(--black);
+}
