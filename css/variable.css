@@ -17,8 +17,8 @@
     --spacing-xxxl: 2.5rem;
     --spacing-xxxxl: 3rem;
 
-    --font-title: 22px;
-    --font-subtitle: 18px;
+    --font-title: 36px;
+    --font-subtitle: 24px;
     --font-md: 16px;
     --font-sm: 14px;
     --font-xs: 12px;
@@ -26,13 +26,21 @@
     --font-bold: 700;
     --font-normal: 400;
     --font-light: 300;
+
+    --body-width: 1440px;
+
+    --global-margin: 6.25rem;
+    --logo-width: 12.5rem;
+
+    --profile-width: 200px;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.5;
-
+    max-width: var(--body-width);
+    margin: 0 auto;
 }
 
 .button {

@@ -1,6 +1,67 @@
 @import 'normalize.css';
 @import 'variable.css';
 
-header{
-    
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xxl) 0;
+    margin: 0 var(--global-margin);  
+}
+
+.header__logo{
+    width:var(--logo-width);
+}
+
+.header__title{
+    font-size: var(--font-title);
+    font-weight: var(--font-normal);
+    color: var(--red);
+}
+
+.main__grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xxl);
+    padding: var(--spacing-xxxl) 0;
+    margin: 0 var(--global-margin);
+}
+
+.main__grid__card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.main__grid__card__profile{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.main__grid__card__profile__picture{
+    width: var(--profile-width);
+    height: var(--profile-width);
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.main__grid__card__profile__name{
+    font-size: var(--font-title);
+    color: var(--lightred);
+}
+
+.main__grid__card__info__location{
+    font-size: var(--font-sm);
+    color: var(--lightred);
+}
+
+.main__grid__card__info__tagline{
+    font-size: var(--font-xs);
+}
+
+.main__grid__card__info__price{
+    font-size: var(--font-xs);
+    color: var(--grey);
 }
