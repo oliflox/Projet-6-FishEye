@@ -45,6 +45,7 @@
     height: var(--profile-width);
     object-fit: cover;
     border-radius: 100%;
+    margin: 0 auto;
 }
 
 .main__grid__card__profile__name{
