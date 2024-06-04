@@ -1,3 +1,17 @@
+// Créer un objet JavaScript avec le HTML du header
+const headerObj = {
+    html: `
+        <header class="header">
+            <a href="index.html" class="header__link">
+                <img class="header__logo" src="../assets/icon/logo.png" alt="FishEye Home page">
+            </a>
+            <h1 class="header__title">Nos photographes</h1>
+        </header>
+    `
+};
+
+document.body.insertAdjacentHTML('afterbegin', headerObj.html);
+
 function createPhotographerCard(photographer) {
     const photographersProfile =
         `<img class="main__grid__card__profile__picture" src="../assets/img/PhotographersID/${photographer.portrait}"
