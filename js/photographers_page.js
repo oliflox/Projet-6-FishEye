@@ -43,7 +43,7 @@ fetch("../data/photographers.json")
 
             const media = data.media.filter(m => m.photographerId == photographerId);
             let mediaCards = '';
-            media.forEach(m => {
+            media.filter(m => m.image != null).forEach(m => {
                 mediaCards += mediaCard(m, photographer);
             });
 
