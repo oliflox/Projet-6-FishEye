@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 :root {
     --red: #901C1C;
     --lightred: #D3573C;
@@ -23,6 +25,9 @@
     --font-sm: 14px;
     --font-xs: 12px;
 
+    --button-font: 1.25rem;
+    --photographer-name: 4rem;
+
     --font-bold: 700;
     --font-normal: 400;
     --font-light: 300;
@@ -30,13 +35,19 @@
     --body-width: 1440px;
 
     --global-margin: 6.25rem;
+    --global-radius: 5px;
     --logo-width: 12.5rem;
 
-    --profile-width: 200px;
+    --portrait-width: 200px;
+    --gallery-card: 350px;
+    --gallery-preview-height: 300px;
+
+    --gallery-column-gap: 90px;
+    --gallery-row-gap: 20px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'DM sans','Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     max-width: var(--body-width);
@@ -48,12 +59,16 @@ body {
     color: var(--white);
     border: none;
     padding: var(--spacing-md) var(--spacing-xl);
-    font-size: var(--font-subtitle);
+    font-size: var(--button-font);
     font-weight: var(--font-bold);
+    cursor: pointer;
+    border-radius: var(--global-radius);
+    transition-duration: 0.3s;
+    width: fit-content;
 }
 
 .button:hover {
     background-color: var(--lightred);
     color: var(--black);
-}
 
+}
