@@ -1,10 +1,9 @@
 
 export const renderMedia = (media, photographer) => {
     const { title, likes, image } = media ?? {};
-    const name = photographer ?? {};
+    const name = photographer?.name ?? {};
     const firstName = name.split(' ')[0];
 
-    
     return `<div class="photographer-main__portfolio__gallery__card">
         <img class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${image}" alt="${title}, image by ${name}">
         <div class="photographer-main__portfolio__gallery__card__info">

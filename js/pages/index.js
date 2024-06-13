@@ -1,4 +1,5 @@
 import { getData } from "../utils/api.js";
+
 import PhotographerThumbnail from "../components/PhotographerThumbnail.js";
 
 const displayPage = (photographers) => {

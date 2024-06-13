@@ -165,3 +165,9 @@
     padding: var(--spacing-md);
     font-weight: var(--font-bold);
 }
+
+.photographer-main__portfolio__orderBy{
+display: flex   ;
+justify-content: space-between;
+align-items: center;
+}
