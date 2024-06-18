@@ -1,4 +1,4 @@
-export const renderOrderBy = () => {
+export const render = () => {
     return `
     <section class="photographer-main__portfolio">
         <label class="photographer-main__portfolio__label" for="orderBy">Trier par</label>
@@ -10,9 +10,6 @@ export const renderOrderBy = () => {
     </section>`;
 };
 
-export const OrderBy = () => {}
-
 export default {
-    renderOrderBy,
-    OrderBy
+    render
 };

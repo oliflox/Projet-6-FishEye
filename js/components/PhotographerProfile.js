@@ -1,4 +1,4 @@
-export const renderProfile = (photographer) => {
+export const render = (photographer) => {
     const { name, city, country, tagline, portrait } = photographer ?? {};
     document.title = name + "'s - profile";
     return `
@@ -15,7 +15,7 @@ export const renderProfile = (photographer) => {
                 <p class="photographer-main__profile__card__info__tagline">${tagline}</p>
             </div>
         </div>
-        <button class="photographer-main__profile__contact button" alt="Contact me">Contactez-moi</button>
+        <button id="contact-button" class="photographer-main__profile__contact button" alt="Contact me">Contactez-moi</button>
         <img class="photographer-main__profile__portrait" src="../assets/img/PhotographersID/${portrait}" alt="${name} profile's picture">
     </section>
     <div id="orderBy"></div>
@@ -24,7 +24,16 @@ export const renderProfile = (photographer) => {
     `;
 };
 
+export const ContactPopUp = () => {
+    const contactButton = document.querySelector("#contact-button");
+
+    contactButton.addEventListener("click", () => {
+        console.log("click");
+    });
+};
+
 
 export default {
-    renderProfile
+    render,
+    ContactPopUp
 };
