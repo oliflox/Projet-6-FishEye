@@ -1,3 +1,5 @@
+
+
 export const render = (media, photographer) => {
     const { title, likes, image, video } = media;
     const {name} = photographer;
@@ -8,6 +10,7 @@ export const render = (media, photographer) => {
     : `<video class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${video}" alt="${title}, video by ${name}"></video>`;
 
     return `
+    
     <div class="photographer-main__portfolio__gallery__card">
          ${mediaContent}
         <div class="photographer-main__portfolio__gallery__card__info">
@@ -16,9 +19,7 @@ export const render = (media, photographer) => {
         </div>
     </div>
     `;
-}
-
-export const events = () => { };
+};
 
 export default {
     render
