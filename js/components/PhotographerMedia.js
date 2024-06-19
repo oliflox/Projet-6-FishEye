@@ -1,11 +1,15 @@
 export const render = (media, photographer) => {
-    const { title, likes, image } = media;
+    const { title, likes, image, video } = media;
     const {name} = photographer;
     const firstName = name.split(" ")[0];
 
+    const mediaContent = image 
+    ? `<img class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${image}" alt="${title}, image by ${name}">`
+    : `<video class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${video}" alt="${title}, video by ${name}"></video>`;
+
     return `
     <div class="photographer-main__portfolio__gallery__card">
-        <img class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${image}" alt="${title}, image by ${name}">
+         ${mediaContent}
         <div class="photographer-main__portfolio__gallery__card__info">
             <p class="photographer-main__portfolio__gallery__card__info__title">${title}</p>
             <p class="photographer-main__portfolio__gallery__card__info__likes">${likes} <i class="fa-solid fa-heart"></i></p>

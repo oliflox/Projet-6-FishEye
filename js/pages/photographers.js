@@ -10,11 +10,12 @@ const displayPage = (photographers, media) => {
 
     app.innerHTML = `
         ${PhotographerProfile.render(photographers)}
+        ${PhotographerProfile.contactPopUp(photographers)}
         <section class="photographer-main__portfolio__gallery">
-        ${media.map(mediaItem => PhotographerMedia.render(mediaItem, photographers)).join("")}   
+            ${media.map(mediaItem => PhotographerMedia.render(mediaItem, photographers)).join("")}   
         </section>
     `;
-};
+}; 
 
 
 (async () => {
@@ -27,6 +28,7 @@ const displayPage = (photographers, media) => {
     const media = data?.media.filter(media => media.photographerId === parseInt(photographerId));
     
     displayPage(photographer, media);
+    PhotographerProfile.event();
 })();
 
 /* filter, carousel, globalLikes, contactModal */

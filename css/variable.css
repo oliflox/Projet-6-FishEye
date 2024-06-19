@@ -44,6 +44,10 @@
 
     --gallery-column-gap: 90px;
     --gallery-row-gap: 20px;
+
+    --popup-width: 670px;
+    --popup-title: 48px;
+    --close-width: 4px;
 }
 
 body {
@@ -71,4 +75,9 @@ body {
     background-color: var(--lightred);
     color: var(--black);
 
+}
+
+.submit-button:hover{
+    background-color: var(--grey);
+    color: var(--white);
 }
