@@ -1,6 +1,7 @@
 import { getData } from "../utils/api.js";
 import PhotographerProfile from "../components/PhotographerProfile.js";
 import PhotographerMedia from "../components/PhotographerMedia.js";
+import { event } from "../components/contactModal.js";
 
 
 const displayPage = (photographers, media) => {
@@ -10,7 +11,6 @@ const displayPage = (photographers, media) => {
 
     app.innerHTML = `
         ${PhotographerProfile.render(photographers)}
-        ${PhotographerProfile.contactPopUp(photographers)}
         <section class="photographer-main__portfolio__gallery">
             ${media.map(mediaItem => PhotographerMedia.render(mediaItem, photographers)).join("")}   
         </section>
@@ -28,7 +28,7 @@ const displayPage = (photographers, media) => {
     const media = data?.media.filter(media => media.photographerId === parseInt(photographerId));
     
     displayPage(photographer, media);
-    PhotographerProfile.event();
+    event();
 })();
 
-/* filter, carousel, globalLikes, contactModal */
+/* filter, carousel, globalLikes */
