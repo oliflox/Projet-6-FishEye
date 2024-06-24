@@ -58,6 +58,13 @@ export const event = () => {
         document.body.classList.toggle("no-scroll");
     });
 
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !popUp.classList.contains("hidden")) {
+            popUp.classList.toggle("hidden");
+            document.body.classList.toggle("no-scroll");
+        }
+    });
+    
 };
 
 export default {

@@ -17,6 +17,9 @@ const displayPage = (photographers, media) => {
             ${media.map(mediaItem => PhotographerMedia.render(mediaItem, photographers)).join("")}   
         </section>
     `;
+
+    PhotographerProfile.event();
+    Filter.event();
 }; 
 
 
@@ -30,8 +33,6 @@ const displayPage = (photographers, media) => {
     const media = data?.media.filter(media => media.photographerId === parseInt(photographerId));
     
     displayPage(photographer, media);
-    Contact.event();
-    Filter.event();
 })();
 
 /* filter, carousel, globalLikes */

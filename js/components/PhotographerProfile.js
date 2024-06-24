@@ -1,9 +1,9 @@
-import {contactPopUp} from "./contactModal.js";
+import ContactModal from "./contactModal.js";
 
 export const render = (photographer) => {
-    const { name, city, country, tagline, portrait } = photographer ?? {};
-    document.title = name + "'s profile";
-    return `
+  const { name, city, country, tagline, portrait } = photographer ?? {};
+  document.title = name + "'s profile";
+  return `
      <header class="header">
         <a href="index.html" class="header__link">
             <img class="header__logo" src="../assets/icon/logo.png" alt="FishEye Home page">
@@ -20,11 +20,15 @@ export const render = (photographer) => {
         <button id="contact-button" class="photographer-main__profile__contact button" alt="Contact me ${name}">Contactez-moi</button>
         <img class="photographer-main__profile__portrait" src="../assets/img/PhotographersID/${portrait}" alt="${name} profile's picture">
     </section>
-    ${contactPopUp(photographer)}
+    ${ContactModal.contactPopUp(photographer)}
     `;
 };
 
+export const event = () => {
+  ContactModal.event();
+};
 
 export default {
-    render
+  render,
+  event,
 };
