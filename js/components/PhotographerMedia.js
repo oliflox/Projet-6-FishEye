@@ -7,7 +7,7 @@ export const render = (media, photographer) => {
 
     const mediaContent = image 
     ? `<img class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${image}" alt="${title}, image by ${name}">`
-    : `<video class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${video}" alt="${title}, video by ${name}"></video>`;
+    : `<video class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${video}" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" alt="${title}, video by ${name}"></video>`;
 
     return `
     
