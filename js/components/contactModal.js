@@ -45,15 +45,15 @@ export const event = () => {
         document.body.classList.toggle("no-scroll");
     });
 
-    const close = document.querySelector("#close-modal");
-    close.addEventListener("click", () => {
+    const form = document.querySelector("#contact-form");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
         popUp.classList.toggle("hidden");
         document.body.classList.toggle("no-scroll");
     });
 
-    const form = document.querySelector("#contact-form");
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
+    const close = document.querySelector("#close-modal");
+    close.addEventListener("click", () => {
         popUp.classList.toggle("hidden");
         document.body.classList.toggle("no-scroll");
     });
@@ -66,6 +66,8 @@ export const event = () => {
     });
     
 };
+
+
 
 export default {
     event,

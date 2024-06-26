@@ -1,7 +1,6 @@
 import { getData } from "../utils/api.js";
 import PhotographerProfile from "../components/PhotographerProfile.js";
 import PhotographerMedia from "../components/PhotographerMedia.js";
-import Contact from "../components/contactModal.js";
 import Filter from "../components/Filter.js";
 
 
@@ -9,9 +8,9 @@ const displayPage = (photographers, media) => {
     if (!photographers || !media) return;
 
     const app = document.querySelector("#app");
-
+ 
     app.innerHTML = `
-        ${PhotographerProfile.render(photographers)}
+        ${PhotographerProfile.render(photographers)} 
         ${Filter.render()} 
         <section class="photographer-main__portfolio__gallery">
             ${media.map(mediaItem => PhotographerMedia.render(mediaItem, photographers)).join("")}   
@@ -19,13 +18,13 @@ const displayPage = (photographers, media) => {
     `;
 
     PhotographerProfile.event();
-    Filter.event();
-}; 
+    Filter.event(media);
+};  
 
 
 (async () => {
     const data = await getData();
-
+    
     const urlParams = new URLSearchParams(window.location.search);
     const photographerId = urlParams.get('id');
  
