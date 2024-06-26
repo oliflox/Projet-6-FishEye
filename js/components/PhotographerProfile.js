@@ -1,4 +1,4 @@
-import ContactModal from "./contactModal.js";
+import ContactModal from "./ContactModal.js";
 
 export const render = (photographer) => {
   const { name, city, country, tagline, portrait } = photographer ?? {};

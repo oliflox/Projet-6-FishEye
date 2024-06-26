@@ -2,8 +2,8 @@ export const render = () => {
     return `
     <section class="photographer-main__portfolio">
         <h2 class="photographer-main__portfolio__filter-title">Trier par</h2>
-        <div id="dropdown" class="photographer-main__portfolio__filter__dropdown">
-            <p class="photographer-main__portfolio__filter__dropdown__current" id="currentFilterValue">Popularité</p>
+        <div  id="dropdown" class="photographer-main__portfolio__filter__dropdown">
+            <p id="currentFilterValue" class="photographer-main__portfolio__filter__dropdown__current" >Popularité</p>
             <div id="dropdownFilterContainer" class="photographer-main__portfolio__filter__dropdown__container hidden">
                 <p class="hidden">Popularité</p>
                 <p>Date</p>
@@ -13,7 +13,7 @@ export const render = () => {
     </section>`;
 };
 
-const dropDownFilter =(media) => {
+const dropDownFilter =() => {
     const currentFilterValue = document.querySelector("#currentFilterValue");
     const dropdownFilterContainer = document.querySelector("#dropdownFilterContainer");
 
@@ -37,10 +37,9 @@ const dropDownFilter =(media) => {
     
 };
 
-const filterMedia = (media) => {
+export const filterMedia = (media) => {
     const urlParams = new URLSearchParams(window.location.search);
     const filterValue = urlParams.get('filter');
-    if (!filterValue) return;
     if (filterValue === "Titre") {
         media.sort((a, b) => a.title.localeCompare(b.title));
     } else if (filterValue === "Popularité") {
@@ -52,11 +51,10 @@ const filterMedia = (media) => {
 
 export const event = (media) => {
     dropDownFilter();
-    filterMedia(media);
-    
 }
 
 export default {
     render,
     event,
+    filterMedia
 };
