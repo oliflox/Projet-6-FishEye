@@ -1,3 +1,5 @@
+import { displayPage } from "../pages/photographers.js";
+
 export const render = () => {
     return `
     <section class="photographer-main__portfolio">
@@ -13,7 +15,7 @@ export const render = () => {
     </section>`;
 };
 
-const dropDownFilter =() => {
+const dropDownFilter =(media) => {
     const currentFilterValue = document.querySelector("#currentFilterValue");
     const dropdownFilterContainer = document.querySelector("#dropdownFilterContainer");
 
@@ -34,12 +36,12 @@ const dropDownFilter =() => {
         url.searchParams.set('filter', e.target.textContent);
         window.history.pushState({}, '', url);
     });
-    
 };
 
-export const filterMedia = (media) => {
+export const sortMedia = (media) => {
     const urlParams = new URLSearchParams(window.location.search);
     const filterValue = urlParams.get('filter');
+
     if (filterValue === "Titre") {
         media.sort((a, b) => a.title.localeCompare(b.title));
     } else if (filterValue === "Popularité") {
@@ -47,14 +49,15 @@ export const filterMedia = (media) => {
     } else if (filterValue === "Date") {
         media.sort((a, b) => new Date(b.date) - new Date(a.date));
     }
-};
+}
 
-export const event = (media) => {
+
+export const event = () => {
     dropDownFilter();
 }
 
 export default {
     render,
     event,
-    filterMedia
+    sortMedia
 };
