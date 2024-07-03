@@ -5,10 +5,14 @@ import Filter from "../components/Filter.js";
 import GlobalLikes from "../components/GlobalLikes.js";
 
  
-const displayPage = (photographers, media) => {
+export const displayPage = (photographers, media) => {
     if (!photographers || !media) return;
 
     const app = document.querySelector("#app");
+    
+    Filter.sortMedia(media);
+    
+    GlobalLikes.event();
  
     app.innerHTML = `
         ${PhotographerProfile.render(photographers)} 
@@ -19,7 +23,7 @@ const displayPage = (photographers, media) => {
         ${GlobalLikes.render(photographers, media)}
     `;
     PhotographerProfile.event();
-    Filter.event(media);
+    Filter.event(photographers, media);
 };  
 
 
@@ -31,9 +35,8 @@ const displayPage = (photographers, media) => {
  
     const photographer = data?.photographers.find(photographer => photographer.id === parseInt(photographerId));
     const media = data?.media.filter(media => media.photographerId === parseInt(photographerId));
-    const sort = media.sort((a, b) => b.likes - a.likes);
-
-    displayPage(photographer, sort);
+    
+    displayPage(photographer, media);
 })();
 
 /* filter, carousel, globalLikes */
