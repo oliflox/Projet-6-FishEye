@@ -1,11 +1,11 @@
 import {displayPage} from "../pages/photographers.js";
 
-export const render = () => {
+export const render = (filterValue = "Popularité") => {
     return `
     <section class="photographer-main__portfolio">
         <h2 class="photographer-main__portfolio__filter-title">Trier par</h2>
         <div  id="dropdown" class="photographer-main__portfolio__filter__dropdown">
-            <p id="currentFilterValue" class="photographer-main__portfolio__filter__dropdown__current" >Popularité</p>
+            <p id="currentFilterValue" class="photographer-main__portfolio__filter__dropdown__current" >${filterValue}</p>
             <div id="dropDownSortContainer" class="photographer-main__portfolio__filter__dropdown__container hidden">
                 <p>Popularité</p>
                 <p>Date</p>
@@ -15,10 +15,24 @@ export const render = () => {
     </section>`;
 };
 
-const dropDownSort =(photographers, media) => {
+const dropDownSort = (photographers, media) => {
     const currentFilterValue = document.querySelector("#currentFilterValue");
     const dropDownSortContainer = document.querySelector("#dropDownSortContainer");
+const filterOptions = dropDownSortContainer.querySelectorAll("p");
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterValue = urlParams.get('filter') || "Popularité";
+
+    currentFilterValue.textContent = filterValue;
+
+
+    filterOptions.forEach(option => {
+        if (option.textContent === filterValue) {
+            option.classList.add("hidden");
+        } else {
+            option.classList.remove("hidden");
+        }
+    });
     currentFilterValue.addEventListener("click", () => {
         dropDownSortContainer.classList.toggle("hidden");
     });
@@ -33,6 +47,7 @@ const dropDownSort =(photographers, media) => {
         displayPage(photographers, media);
     });
 };
+
 
 export const sortMedia = (media) => {
     const urlParams = new URLSearchParams(window.location.search);

@@ -114,7 +114,6 @@
 .photographer-main__portfolio__filter__dropdown {
     background-color: var(--red);
     color: var(--white);
-    padding: var(--spacing-md) var(--spacing-lg);
     border-radius: var(--global-radius);
     margin-left: var(--spacing-xl);
     font-weight: var(--font-bold);
@@ -123,10 +122,15 @@
     width: 120px;
 }
 
+.photographer-main__portfolio__filter__dropdown__current{
+    padding: var(--spacing-md) var(--spacing-lg);
+}
 
 .photographer-main__portfolio__filter__dropdown__container{
+    z-index: 1;
     position: absolute;
     left: 0;  
+    top: 40px;
     display: flex;
     width: 100%;
     flex-direction: column;

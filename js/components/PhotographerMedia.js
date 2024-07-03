@@ -1,4 +1,4 @@
-
+import LightBox from "../components/LightBox.js";
 
 export const render = (media, photographer) => {
     const { title, likes, image, video } = media;
@@ -10,7 +10,7 @@ export const render = (media, photographer) => {
     : `<video class="photographer-main__portfolio__gallery__card__preview" src="../assets/img/${firstName}/${video}" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" alt="${title}, video by ${name}"></video>`;
 
     return `
-    
+    ${LightBox.render()}
     <div class="photographer-main__portfolio__gallery__card">
          ${mediaContent}
         <div class="photographer-main__portfolio__gallery__card__info">
@@ -19,6 +19,10 @@ export const render = (media, photographer) => {
         </div>
     </div>
     `;
+};
+
+export const event = () => {
+    LightBox.event();
 };
 
 export default {
