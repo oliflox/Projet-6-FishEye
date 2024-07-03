@@ -275,13 +275,6 @@
     transform: rotate(-45deg);
 }
 
-.hidden {
-    display: none;
-}
-
-.no-scroll {
-    overflow: hidden;
-}*
 
 .portfolio__lightbox{
     display: flex;
@@ -318,4 +311,12 @@
 .portfolio__lightbox__card__title{
     font-size: var(--font-subtitle);
     color: var(--red);
+}
+
+.hidden {
+    display: none;
+}
+
+.no-scroll {
+    overflow: hidden;
 }

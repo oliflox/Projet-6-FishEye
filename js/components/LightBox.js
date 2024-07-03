@@ -1,6 +1,6 @@
 export const render = () => {
     return `
-    <div class="portfolio__lightbox">
+    <div class="hidden portfolio__lightbox">
         <i class="fa-solid fa-chevron-left portfolio__lightbox__arrow"></i>
         <div class="portfolio__lightbox__card">
             <img class="portfolio__lightbox__card__image" src="/assets/img/Marcel/Architecture_Contrast.jpg"
