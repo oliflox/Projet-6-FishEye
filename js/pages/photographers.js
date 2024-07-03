@@ -1,7 +1,7 @@
 import { getData } from "../utils/api.js";
 import PhotographerProfile from "../components/PhotographerProfile.js";
 import PhotographerMedia from "../components/PhotographerMedia.js";
-import Filter from "../components/Sort.js"; 
+import Sort from "../components/Sort.js"; 
 import GlobalLikes from "../components/GlobalLikes.js";
 
  
@@ -10,18 +10,18 @@ export const displayPage = (photographers, media) => {
 
     const app = document.querySelector("#app");
     
-    Filter.sortMedia(media);
+    Sort.sortMedia(media);
     
     app.innerHTML = `
         ${PhotographerProfile.render(photographers)} 
-        ${Filter.render()} 
+        ${Sort.render(photographers, media)} 
         <section class="photographer-main__portfolio__gallery">
             ${media.map(mediaItem => PhotographerMedia.render(mediaItem, photographers)).join("")}   
         </section>
         ${GlobalLikes.render(photographers, media)}
     `;
     PhotographerProfile.event();
-    Filter.event(photographers, media);
+    Sort.event(photographers, media);
 };  
 
 
@@ -36,5 +36,3 @@ export const displayPage = (photographers, media) => {
     
     displayPage(photographer, media);
 })();
-
-/* filter, carousel, globalLikes */

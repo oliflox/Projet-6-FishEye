@@ -15,5 +15,4 @@ export const render = (photographer, media) => {
 
 export default {
     render,
-    event
 };

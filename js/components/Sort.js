@@ -1,4 +1,4 @@
-import { displayPage } from "../pages/photographers.js";
+import {displayPage} from "../pages/photographers.js";
 
 export const render = () => {
     return `
@@ -15,7 +15,7 @@ export const render = () => {
     </section>`;
 };
 
-const dropDownSort =() => {
+const dropDownSort =(photographers, media) => {
     const currentFilterValue = document.querySelector("#currentFilterValue");
     const dropDownSortContainer = document.querySelector("#dropDownSortContainer");
 
@@ -35,6 +35,8 @@ const dropDownSort =() => {
         const url = new URL(window.location);
         url.searchParams.set('filter', e.target.textContent);
         window.history.pushState({}, '', url);
+
+        displayPage(photographers, media);
     });
 };
 
@@ -52,8 +54,8 @@ export const sortMedia = (media) => {
 }
 
 
-export const event = () => {
-    dropDownSort();
+export const event = (photographers, media) => {
+    dropDownSort(photographers, media);
 }
 
 export default {
