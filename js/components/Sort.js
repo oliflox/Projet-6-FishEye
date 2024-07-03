@@ -7,7 +7,7 @@ export const render = () => {
         <div  id="dropdown" class="photographer-main__portfolio__filter__dropdown">
             <p id="currentFilterValue" class="photographer-main__portfolio__filter__dropdown__current" >Popularité</p>
             <div id="dropDownSortContainer" class="photographer-main__portfolio__filter__dropdown__container hidden">
-                <p class="hidden">Popularité</p>
+                <p>Popularité</p>
                 <p>Date</p>
                 <p>Titre</p>
             </div>
@@ -25,13 +25,7 @@ const dropDownSort =(photographers, media) => {
 
     dropDownSortContainer.addEventListener('click', (e) => {
         currentFilterValue.textContent = e.target.textContent;
-        dropDownSortContainer.classList.toggle("hidden");
-        e.target.classList.add("hidden");
-        for (let i = 0; i < dropDownSortContainer.children.length; i++) {
-            if (dropDownSortContainer.children[i].textContent !== e.target.textContent) {
-                dropDownSortContainer.children[i].classList.remove("hidden");
-            }
-        }
+
         const url = new URL(window.location);
         url.searchParams.set('filter', e.target.textContent);
         window.history.pushState({}, '', url);

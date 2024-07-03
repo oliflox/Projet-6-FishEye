@@ -3,6 +3,7 @@ import PhotographerProfile from "../components/PhotographerProfile.js";
 import PhotographerMedia from "../components/PhotographerMedia.js";
 import Sort from "../components/Sort.js"; 
 import GlobalLikes from "../components/GlobalLikes.js";
+import LightBox from "../components/LightBox.js";
 
  
 export const displayPage = (photographers, media) => {
@@ -13,6 +14,7 @@ export const displayPage = (photographers, media) => {
     Sort.sortMedia(media);
     
     app.innerHTML = `
+        ${LightBox.render()}
         ${PhotographerProfile.render(photographers)} 
         ${Sort.render(photographers, media)} 
         <section class="photographer-main__portfolio__gallery">
@@ -20,8 +22,11 @@ export const displayPage = (photographers, media) => {
         </section>
         ${GlobalLikes.render(photographers, media)}
     `;
+    
     PhotographerProfile.event();
     Sort.event(photographers, media);
+    GlobalLikes.event();
+    LightBox.event();
 };  
 
 

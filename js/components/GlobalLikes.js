@@ -1,7 +1,6 @@
 export const render = (photographer, media) => {
     const { price } = photographer ?? {};
-
-    // Vérifie que media est un tableau et additionne les likes
+    
     const totalLikes = Array.isArray(media) ? media.reduce((acc, curr) => acc + curr.likes, 0) : 0;
 
     return`
@@ -12,7 +11,12 @@ export const render = (photographer, media) => {
     `
 }; 
 
+export const event = () => {
+    
+};
+
 
 export default {
     render,
+    event
 };
