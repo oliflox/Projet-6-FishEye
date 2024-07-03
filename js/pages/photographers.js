@@ -1,7 +1,7 @@
 import { getData } from "../utils/api.js";
 import PhotographerProfile from "../components/PhotographerProfile.js";
 import PhotographerMedia from "../components/PhotographerMedia.js";
-import Filter from "../components/Filter.js"; 
+import Filter from "../components/Sort.js"; 
 import GlobalLikes from "../components/GlobalLikes.js";
 
  
@@ -12,8 +12,6 @@ export const displayPage = (photographers, media) => {
     
     Filter.sortMedia(media);
     
-    GlobalLikes.event();
- 
     app.innerHTML = `
         ${PhotographerProfile.render(photographers)} 
         ${Filter.render()} 
