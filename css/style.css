@@ -167,13 +167,17 @@
 .photographer-main__portfolio__gallery__card__info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: var(--spacing-sm) 0;
-}
-
-.photographer-main__portfolio__gallery__card__info {
     font-size: var(--font-subtitle);
     color: var(--red);
+}
+
+.photographer-main__portfolio__gallery__card__info__title{
+    flex: 3;
+}
+
+.photographer-main__portfolio__gallery__card__likes{
+    flex: 1;
 }
 
 .photographer-main__pricetag {
@@ -186,6 +190,12 @@
     gap: var(--spacing-lg);
     padding: var(--spacing-md);
     font-weight: var(--font-bold);
+}
+
+.photographer-main__pricetag__container{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
 }
 
 .photographer-main__portfolio__filter {
@@ -323,4 +333,8 @@
 
 .no-scroll {
     overflow: hidden;
+}
+
+.pointer{
+    cursor: pointer;
 }

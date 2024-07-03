@@ -24,7 +24,7 @@ export const displayPage = (photographers, media) => {
     
     PhotographerProfile.event();
     Sort.event(photographers, media);
-    GlobalLikes.event();
+    GlobalLikes.event(media);
 };  
 
 

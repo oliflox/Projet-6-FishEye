@@ -15,14 +15,16 @@ export const render = (media, photographer) => {
          ${mediaContent}
         <div class="photographer-main__portfolio__gallery__card__info">
             <p class="photographer-main__portfolio__gallery__card__info__title">${title}</p>
-            <p class="photographer-main__portfolio__gallery__card__info__likes">${likes} <i class="fa-solid fa-heart"></i></p>
+            <p class="photographer-main__portfolio__gallery__card__info__likes">${likes} <i class="pointer fa-regular fa-heart"></i></p>
         </div>
     </div>
+    
     `;
 };
 
 export const event = () => {
     LightBox.event();
+    
 };
 
 export default {
