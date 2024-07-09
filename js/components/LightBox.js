@@ -1,30 +1,34 @@
 let currentMediaIndex = 0;
-let currentImage = '';
+let currentMedia = '';
+let currentTitle = '';
+
+
 
 export const render = (media) => {
     let images = media.map(item => item.image);
-    currentImage = images[2];
+    currentMedia = images[2];
+    currentTitle = media[2].title;
     return `
     <div class="hidden portfolio__lightbox">
         <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
         <i id="previous-button" class="fa-solid fa-chevron-left portfolio__lightbox__arrow"></i>
         <div class="portfolio__lightbox__card">
-            <img class="portfolio__lightbox__card__image" src="../assets/img/Mimi/${currentImage}">
-            <h3 class="portfolio__lightbox__card__title">Arc-en-ciel</h3>
+            <img id="image-display" class="portfolio__lightbox__card__image" src="../assets/img/Mimi/${currentMedia}" alt="photo of ${currentTitle}">
+            <h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>
         </div>
         <i id="next-button" class="fa-solid fa-chevron-right portfolio__lightbox__arrow"></i>
     </div>
-    `
+    `;
 };
 
-export const openLightbox = () => {
+export const openLightbox = (media) => {
     const lightboxElements = document.querySelectorAll(".photographer-main__portfolio__gallery__card__preview");
     lightboxElements.forEach((element, index) => {
         element.addEventListener("click", (e) => {
             currentMediaIndex = index;
             document.querySelector(".portfolio__lightbox").classList.toggle("hidden");
             document.body.classList.add("no-scroll");
-            console.log("currentMedia " + currentMediaIndex);
+            changeMedia(media); // Mettre à jour les informations du média sélectionné
         });
     });
 };
@@ -38,15 +42,26 @@ export const closeLightbox = () => {
     });
 };
 
+function changeMedia(media) {
+    const imageDisplay = document.querySelector("#image-display"); 
+    const titleDisplay = document.querySelector("#title-display"); 
+
+    currentMedia = media[currentMediaIndex].image;
+    currentTitle = media[currentMediaIndex].title;
+    
+    imageDisplay.src ='../assets/img/Mimi/'+ currentMedia;
+    titleDisplay.textContent = currentTitle; 
+}
+
 export const previousMedia = (media) => {
     const previousButton = document.querySelector("#previous-button");
     previousButton.addEventListener("click", () => {
         if (currentMediaIndex > 0) {
             currentMediaIndex--;
         } else {
-            currentMediaIndex = media.length - 1; 
+            currentMediaIndex = media.length - 1;
         }
-        console.log("currentMedia " + currentMediaIndex);
+        changeMedia(media);
     });
 };
 
@@ -58,9 +73,9 @@ export const nextMedia = (media) => {
         } else {
             currentMediaIndex = 0;
         }
-        console.log("currentMedia " + currentMediaIndex);
+        changeMedia(media);
     });
-}
+};
 
 export const carousel = (media) => {
     previousMedia(media);
@@ -68,9 +83,10 @@ export const carousel = (media) => {
 };
 
 export const event = (media) => {
-    openLightbox();
+    openLightbox(media);
     closeLightbox();
     carousel(media);
+    
 };
 
 
