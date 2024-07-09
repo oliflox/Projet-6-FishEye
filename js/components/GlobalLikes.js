@@ -1,3 +1,6 @@
+import {displayPage} from "../pages/photographers.js";
+
+
 export const render = (photographer, media) => {
     const { price } = photographer ?? {};
     
@@ -14,28 +17,49 @@ export const render = (photographer, media) => {
     `
 }; 
 
-export const event = (media) => {
+export const event = (photographers, media) => {
     let hearts = document.querySelectorAll('.fa-heart');
 
     hearts.forEach((heart, index) => {
-        heart.addEventListener('click', (e) => {
-            e.target.classList.toggle('fa-solid');
-            e.target.classList.toggle('fa-regular');
+        const toggleLike = () => {
+            heart.classList.toggle('fa-solid');
+            heart.classList.toggle('fa-regular');
 
-            const isLiked = e.target.classList.contains('fa-solid');
+            const isLiked = heart.classList.contains('fa-solid');
 
-            if (isLiked) {
-                media[index].likes += 1;
-            } else {
-                media[index].likes = Math.max(0, media[index].likes - 1);
+            // if (isLiked) {
+            //     media[index].likes += 1;
+            // } else {
+            //     media[index].likes = Math.max(0, media[index].likes - 1);
+            // }
+
+            const _media = media.map((med, i) => {
+                if(index === i){
+                        med.likes += 1;
+                }
+
+                return med;
+            } )
+
+            displayPage(photographers, _media);
+
+
+
+            // const totalLikes = media.reduce((acc, curr) => acc + curr.likes, 0);
+            // document.querySelector(".photographer-main__pricetag__like").textContent = `${totalLikes}`;
+            // console.log(index, media[index].likes);
+
+        };
+        
+        heart.addEventListener('click', toggleLike);
+
+        heart.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                toggleLike();
             }
-
-            const totalLikes = media.reduce((acc, curr) => acc + curr.likes, 0);
-            document.querySelector(".photographer-main__pricetag__like").textContent = `${totalLikes}`;
         });
     });
 };
-
 
 export default {
     render,
