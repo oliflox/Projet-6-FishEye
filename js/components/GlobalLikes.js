@@ -1,6 +1,3 @@
-import {displayPage} from "../pages/photographers.js";
-
-
 export const render = (photographer, media) => {
     const { price } = photographer ?? {};
     
