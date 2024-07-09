@@ -6,8 +6,8 @@ let currentTitle = '';
 
 export const render = (media) => {
     let images = media.map(item => item.image);
-    currentMedia = images[2];
-    currentTitle = media[2].title;
+    currentMedia = images[0];
+    currentTitle = media[0].title;
     return `
     <div class="hidden portfolio__lightbox">
         <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
