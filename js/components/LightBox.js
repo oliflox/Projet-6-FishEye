@@ -2,8 +2,6 @@ let currentMediaIndex = 0;
 let currentMedia = '';
 let currentTitle = '';
 
-
-
 export const render = (media) => {
     let images = media.map(item => item.image);
     currentMedia = images[0];
@@ -13,7 +11,7 @@ export const render = (media) => {
         <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
         <i id="previous-button" class="fa-solid fa-chevron-left portfolio__lightbox__arrow"></i>
         <div class="portfolio__lightbox__card">
-            <img id="image-display" class="portfolio__lightbox__card__image" src="../assets/img/Mimi/${currentMedia}" alt="photo of ${currentTitle}">
+            <img id="image-display" class="portfolio__lightbox__card__media" src="../assets/img/Mimi/${currentMedia}" alt="photo of ${currentTitle}">
             <h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>
         </div>
         <i id="next-button" class="fa-solid fa-chevron-right portfolio__lightbox__arrow"></i>
@@ -28,7 +26,7 @@ export const openLightbox = (media) => {
             currentMediaIndex = index;
             document.querySelector(".portfolio__lightbox").classList.toggle("hidden");
             document.body.classList.add("no-scroll");
-            changeMedia(media); // Mettre à jour les informations du média sélectionné
+            changeMedia(media); 
         });
     });
 };
@@ -43,15 +41,23 @@ export const closeLightbox = () => {
 };
 
 function changeMedia(media) {
-    const imageDisplay = document.querySelector("#image-display"); 
-    const titleDisplay = document.querySelector("#title-display"); 
-
-    currentMedia = media[currentMediaIndex].image;
+    const mediaContainer = document.querySelector(".portfolio__lightbox__card");
+    currentMedia = media[currentMediaIndex].image || media[currentMediaIndex].video;
     currentTitle = media[currentMediaIndex].title;
-    
-    imageDisplay.src ='../assets/img/Mimi/'+ currentMedia;
-    titleDisplay.textContent = currentTitle; 
+
+    let mediaElement;
+    if (currentMedia.endsWith('.mp4') || currentMedia.endsWith('.avi')) {
+        // Si c'est une vidéo
+        mediaElement = `<video id="media-display" class="portfolio__lightbox__card__media" controls src="../assets/img/Mimi/${currentMedia}" alt="video of ${currentTitle}"></video>`;
+    } else {
+        // Si c'est une image
+        mediaElement = `<img id="media-display" class="portfolio__lightbox__card__media" src="../assets/img/Mimi/${currentMedia}" alt="photo of ${currentTitle}">`;
+    }
+
+    mediaContainer.innerHTML = mediaElement + `<h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>`;
 }
+
+
 
 export const previousMedia = (media) => {
     const previousButton = document.querySelector("#previous-button");
@@ -65,8 +71,10 @@ export const previousMedia = (media) => {
     });
 };
 
+
 export const nextMedia = (media) => {
     const nextButton = document.querySelector("#next-button");
+
     nextButton.addEventListener("click", () => {
         if (currentMediaIndex < media.length - 1) {
             currentMediaIndex++;
@@ -77,6 +85,7 @@ export const nextMedia = (media) => {
     });
 };
 
+
 export const carousel = (media) => {
     previousMedia(media);
     nextMedia(media);
@@ -86,7 +95,6 @@ export const event = (media) => {
     openLightbox(media);
     closeLightbox();
     carousel(media);
-    
 };
 
 
