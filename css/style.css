@@ -180,6 +180,12 @@
     flex: 1;
 }
 
+.photographer-main__portfolio__gallery__card__info__likes{
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+}
+
 .photographer-main__pricetag {
     position: fixed;
     bottom: -10px;

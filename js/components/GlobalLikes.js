@@ -18,45 +18,30 @@ export const render = (photographer, media) => {
 }; 
 
 export const event = (photographers, media) => {
-    let hearts = document.querySelectorAll('.fa-heart');
+    const updateTotalLikes = () => {
+        const totalLikes = media.reduce((acc, curr) => acc + curr.likes, 0);
+        const totalLikesElement = document.querySelector(".photographer-main__pricetag__like");
+        if (totalLikesElement) {
+            totalLikesElement.textContent = totalLikes;
+        }
+    };
 
-    hearts.forEach((heart, index) => {
-        const toggleLike = () => {
-            heart.classList.toggle('fa-solid');
-            heart.classList.toggle('fa-regular');
-
-            const isLiked = heart.classList.contains('fa-solid');
-
-            // if (isLiked) {
-            //     media[index].likes += 1;
-            // } else {
-            //     media[index].likes = Math.max(0, media[index].likes - 1);
-            // }
-
-            const _media = media.map((med, i) => {
-                if(index === i){
-                        med.likes += 1;
-                }
-
-                return med;
-            } )
-
-            displayPage(photographers, _media);
-
-
-
-            // const totalLikes = media.reduce((acc, curr) => acc + curr.likes, 0);
-            // document.querySelector(".photographer-main__pricetag__like").textContent = `${totalLikes}`;
-            // console.log(index, media[index].likes);
-
-        };
-        
-        heart.addEventListener('click', toggleLike);
-
-        heart.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                toggleLike();
+    media.forEach((_, index) => {
+        const heartIcon = document.getElementById(`heart-${index}`);
+        heartIcon.addEventListener('click', () => {
+            if (heartIcon.classList.contains('fa-solid')) {
+                media[index].likes--;
+                heartIcon.classList.remove('fa-solid');
+                heartIcon.classList.add('fa-regular');
+            } else {
+                media[index].likes++;
+                heartIcon.classList.add('fa-solid');
+                heartIcon.classList.remove('fa-regular');
             }
+            const likesElement = document.getElementById(`like-${index}`);
+            likesElement.textContent = media[index].likes;
+     
+            updateTotalLikes();
         });
     });
 };
