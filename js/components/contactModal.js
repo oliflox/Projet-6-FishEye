@@ -6,7 +6,7 @@ export const contactPopUp = (photographer) => {
         <div id="popup-form" class="contact__modal__popup">
             <h1 class="contact__modal__popup__title">Contactez-moi</h1>
             <h2 class="contact__modal__popup__subtitle">${name}</h2>
-            <span id="close-modal" class="close"></span>
+
             <form id="contact-form" class="contact__modal__popup__form" method="get">
                 <div class="contact__modal__popup__form-Data">
                     <label class="contact__modal__popup__form-Data__labels">Prénom</label>
@@ -30,6 +30,7 @@ export const contactPopUp = (photographer) => {
                     <p id="emailError" class="error hidden">Veuillez saisir une adresse mail valide</p>
                 </div>
                 <input class="button submit-button" type="submit" value="Envoyer" />
+                <span tabindex="0" id="close-modal" class="close"></span>
             </form>
         </div>
     </section>
@@ -64,9 +65,15 @@ export const event = () => {
             document.body.classList.toggle("no-scroll");
         }
     });
+
+    close.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            popUp.classList.toggle("hidden");
+            document.body.classList.toggle("no-scroll");
+        }
+    });
     
 };
-
 
 
 export default {

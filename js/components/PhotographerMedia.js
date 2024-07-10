@@ -6,13 +6,13 @@ export const render = (media, photographer,index) => {
     const firstName = name.split(" ")[0];
     
     const mediaContent = image 
-        ? `<img class="photographer-main__portfolio__gallery__card__preview pointer" src="../assets/img/${firstName}/${image}" alt="${title}, image by ${name}">`
-        : `<video class="photographer-main__portfolio__gallery__card__preview pointer" src="../assets/img/${firstName}/${video}" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" alt="${title}, video by ${name}"></video>`;
+        ? `<img tabindex="0" class="photographer-main__portfolio__gallery__card__preview pointer" src="../assets/img/${firstName}/${image}" alt="${title}, image by ${name}">`
+        : `<video tabindex="0" class="photographer-main__portfolio__gallery__card__preview pointer" src="../assets/img/${firstName}/${video}" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" alt="${title}, video by ${name}"></video>`;
 
     return `
-    <div tabindex="0" class="photographer-main__portfolio__gallery__card">
+    <div  class="photographer-main__portfolio__gallery__card">
         ${mediaContent}
-        <div class="photographer-main__portfolio__gallery__card__info">
+        <div  class="photographer-main__portfolio__gallery__card__info">
             <p class="photographer-main__portfolio__gallery__card__info__title">${title}</p>
             <div class="photographer-main__portfolio__gallery__card__info__likes">
                 <p id="like-${index}">${likes}</p>

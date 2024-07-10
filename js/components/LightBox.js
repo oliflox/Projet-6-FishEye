@@ -23,10 +23,8 @@ export const render = (media, photographers) => {
         <div class="portfolio__lightbox__right-container">
             <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
             <i id="next-button" class="fa-solid fa-chevron-right portfolio__lightbox__arrow"></i>
-            
             <span></span>
         </div>
-        
     </div>
     `;
 };

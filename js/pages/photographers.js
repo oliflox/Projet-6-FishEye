@@ -28,7 +28,6 @@ export const displayPage = (photographers, media) => {
     PhotographerMedia.event(photographers, media);
 };
 
-
 (async () => {
     const data = await getData();
 

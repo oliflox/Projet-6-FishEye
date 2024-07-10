@@ -91,6 +91,7 @@
 }
 
 .photographer-main__profile__card__name {
+    font-weight: var(--font-normal);
     font-size: var(--photographer-name);
     color: var(--lightred);
 }
@@ -102,7 +103,7 @@
 
 .photographer-main__portfolio {
     margin: var(--spacing-xl) var(--global-margin);
-    gap: var(--spacing-md);
+    gap: var(--spacing-xl);
     display: flex;
     align-items: center;
 }
@@ -115,7 +116,7 @@
     background-color: var(--red);
     color: var(--white);
     border-radius: var(--global-radius);
-    margin-left: var(--spacing-xl);
+    font-size: var(--font-normal);
     font-weight: var(--font-bold);
     position: relative;
     cursor: pointer;
@@ -234,10 +235,12 @@
 
 .contact__modal__popup__title {
     font-size: var(--popup-title);
+    font-weight: var(--font-normal);
 }
 
 .contact__modal__popup__subtitle {
     font-size: var(--popup-title);
+    font-weight: var(--font-normal);
 }
 
 .contact__modal__popup__form-Data {
@@ -249,7 +252,7 @@
 
 .contact__modal__popup__form-Data__labels {
     font-size: var(--font-subtitle);
-    color: var(--grey);
+    color: var(--darkgrey);
 }
 
 .contact__modal__popup__form-Data__inputs {
@@ -330,6 +333,7 @@
 
 .portfolio__lightbox__card__title{
     font-size: var(--font-subtitle);
+    font-weight: var(--font-normal);
     color: var(--red);
 }
 

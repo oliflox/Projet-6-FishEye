@@ -5,6 +5,7 @@
     --lightred: #DB8876;
     --grey: #757575;
     --lightgrey: #FAFAFA;
+    --darkgrey: #312E2E;
 
     --white: #FFFFFF;
     --black: #000000;
@@ -27,7 +28,7 @@
     --font-sm: 14px;
     --font-xs: 12px;
 
-    --button-font: 1.25rem;
+    --button-font: 1rem;
     --photographer-name: 4rem;
 
     --font-bold: 700;
@@ -71,7 +72,7 @@ body {
     border: none;
     padding: var(--spacing-md) var(--spacing-xl);
     font-size: var(--button-font);
-    font-weight: var(--font-bold);
+    font-weight: 500;
     cursor: pointer;
     border-radius: var(--global-radius);
     transition-duration: 0.3s;
@@ -88,3 +89,4 @@ body {
     background-color: var(--grey);
     color: var(--white);
 }
+

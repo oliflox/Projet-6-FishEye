@@ -16,15 +16,14 @@ export const render = (filterValue = "Popularité") => {
 };
 
 const dropDownSort = (photographers, media) => {
-    const currentsortValue = document.querySelector("#currentSortValue");
+    const currentSortValue = document.querySelector("#currentSortValue");
     const dropDownSortContainer = document.querySelector("#dropDownSortContainer");
-const sortOptions = dropDownSortContainer.querySelectorAll("p");
+    const sortOptions = dropDownSortContainer.querySelectorAll("p");
 
     const urlParams = new URLSearchParams(window.location.search);
     const sortValue = urlParams.get('sort') || "Popularité";
 
-    currentsortValue.textContent = sortValue;
-
+    currentSortValue.textContent = sortValue;
 
     sortOptions.forEach(option => {
         if (option.textContent === sortValue) {
@@ -33,12 +32,20 @@ const sortOptions = dropDownSortContainer.querySelectorAll("p");
             option.classList.remove("hidden");
         }
     });
-    currentsortValue.addEventListener("click", () => {
+
+    currentSortValue.setAttribute('tabindex', '0');
+    currentSortValue.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            dropDownSortContainer.classList.toggle("hidden");
+        }
+    });
+
+    currentSortValue.addEventListener("click", () => {
         dropDownSortContainer.classList.toggle("hidden");
     });
 
     dropDownSortContainer.addEventListener('click', (e) => {
-        currentsortValue.textContent = e.target.textContent;
+        currentSortValue.textContent = e.target.textContent;
 
         const url = new URL(window.location);
         url.searchParams.set('sort', e.target.textContent);

@@ -23,22 +23,31 @@ export const event = (photographers, media) => {
         }
     };
 
+    const toggleLike = (index) => {
+        const heartIcon = document.getElementById(`heart-${index}`);
+        if (heartIcon.classList.contains('fa-solid')) {
+            media[index].likes--;
+            heartIcon.classList.remove('fa-solid');
+            heartIcon.classList.add('fa-regular');
+        } else {
+            media[index].likes++;
+            heartIcon.classList.add('fa-solid');
+            heartIcon.classList.remove('fa-regular');
+        }
+        const likesElement = document.getElementById(`like-${index}`);
+        likesElement.textContent = media[index].likes;
+
+        updateTotalLikes();
+    };
+
     media.forEach((_, index) => {
         const heartIcon = document.getElementById(`heart-${index}`);
-        heartIcon.addEventListener('click', () => {
-            if (heartIcon.classList.contains('fa-solid')) {
-                media[index].likes--;
-                heartIcon.classList.remove('fa-solid');
-                heartIcon.classList.add('fa-regular');
-            } else {
-                media[index].likes++;
-                heartIcon.classList.add('fa-solid');
-                heartIcon.classList.remove('fa-regular');
+        heartIcon.addEventListener('click', () => toggleLike(index));
+        heartIcon.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                toggleLike(index);
             }
-            const likesElement = document.getElementById(`like-${index}`);
-            likesElement.textContent = media[index].likes;
-     
-            updateTotalLikes();
         });
     });
 };
