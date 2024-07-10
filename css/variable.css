@@ -3,7 +3,7 @@
 :root {
     --red: #901C1C;
     --lightred: #DB8876;
-    --grey: #525252;
+    --grey: #757575;
     --lightgrey: #FAFAFA;
 
     --white: #FFFFFF;
@@ -18,6 +18,8 @@
     --spacing-xxl: 2rem;
     --spacing-xxxl: 2.5rem;
     --spacing-xxxxl: 3rem;
+
+    --main-grid-spcing: 4rem;
 
     --font-title: 36px;
     --font-subtitle: 24px;

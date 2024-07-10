@@ -22,9 +22,8 @@
 .main__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xxl);
-    padding: var(--spacing-xxxl) 0;
-    margin: 0 var(--global-margin);
+    gap: var(--main-grid-spcing);
+    padding: var(--spacing-xxl) 0;
 }
 
 .main__grid__card {
@@ -49,13 +48,14 @@
 }
 
 .main__grid__card__profile__name {
+    font-weight: var(--font-normal);
     font-size: var(--font-title);
     color: var(--lightred);
 }
 
 .main__grid__card__info__location {
     font-size: var(--font-sm);
-    color: var(--lightred);
+    color: var(--red);
 }
 
 .main__grid__card__info__tagline {
@@ -312,7 +312,7 @@
 }
 
 .portfolio__lightbox__arrow{
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--red);
     cursor: pointer;
 }
@@ -333,11 +333,17 @@
     color: var(--red);
 }
 
+.portfolio__lightbox__right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    height: 100%;
+}
+
 .portfolio__lightbox__close{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
+    margin-top: 20px;
+    font-size: 3rem;
     color: var(--red);
     cursor: pointer;
 

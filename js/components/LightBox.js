@@ -15,13 +15,18 @@ export const render = (media, photographers) => {
     currentTitle = media[1].title;
     return `
     <div class="hidden portfolio__lightbox">
-        <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
         <i id="previous-button" class="fa-solid fa-chevron-left portfolio__lightbox__arrow"></i>
         <div class="portfolio__lightbox__card">
             <img id="image-display" class="portfolio__lightbox__card__media" src="../assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">
             <h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>
         </div>
-        <i id="next-button" class="fa-solid fa-chevron-right portfolio__lightbox__arrow"></i>
+        <div class="portfolio__lightbox__right-container">
+            <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
+            <i id="next-button" class="fa-solid fa-chevron-right portfolio__lightbox__arrow"></i>
+            
+            <span></span>
+        </div>
+        
     </div>
     `;
 };
