@@ -1,4 +1,3 @@
-import LightBox from "../components/LightBox.js";
 import GlobalLikes from "../components/GlobalLikes.js";
 
 export const render = (media, photographer,index) => {
@@ -25,7 +24,6 @@ export const render = (media, photographer,index) => {
 };
 
 export const event = (photographers, media) => {
-    LightBox.event(media);
     GlobalLikes.event(photographers, media);
 };
 

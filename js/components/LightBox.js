@@ -2,16 +2,23 @@ let currentMediaIndex = 0;
 let currentMedia = '';
 let currentTitle = '';
 
-export const render = (media) => {
+function photographerName(photographers) {
+    let { name } = photographers;
+    let firstName = name.split(" ")[0];
+    return firstName;
+}
+
+export const render = (media, photographers) => {
+    let firstName = photographerName(photographers); 
     let images = media.map(item => item.image);
-    currentMedia = images[0];
-    currentTitle = media[0].title;
+    currentMedia = images[1];
+    currentTitle = media[1].title;
     return `
     <div class="hidden portfolio__lightbox">
         <i id="lightboxClose" class="fa-solid fa-times portfolio__lightbox__close"></i>
         <i id="previous-button" class="fa-solid fa-chevron-left portfolio__lightbox__arrow"></i>
         <div class="portfolio__lightbox__card">
-            <img id="image-display" class="portfolio__lightbox__card__media" src="../assets/img/Mimi/${currentMedia}" alt="photo of ${currentTitle}">
+            <img id="image-display" class="portfolio__lightbox__card__media" src="../assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">
             <h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>
         </div>
         <i id="next-button" class="fa-solid fa-chevron-right portfolio__lightbox__arrow"></i>
@@ -19,14 +26,14 @@ export const render = (media) => {
     `;
 };
 
-export const openLightbox = (media) => {
+export const openLightbox = (media, photographers) => {
     const lightboxElements = document.querySelectorAll(".photographer-main__portfolio__gallery__card__preview");
     lightboxElements.forEach((element, index) => {
         element.addEventListener("click", (e) => {
             currentMediaIndex = index;
             document.querySelector(".portfolio__lightbox").classList.toggle("hidden");
             document.body.classList.add("no-scroll");
-            changeMedia(media); 
+            changeMedia(media, photographers); 
         });
     });
 };
@@ -40,18 +47,17 @@ export const closeLightbox = () => {
     });
 };
 
-function changeMedia(media) {
+function changeMedia(media, photographers) {
+    let firstName = photographerName(photographers); 
     const mediaContainer = document.querySelector(".portfolio__lightbox__card");
     currentMedia = media[currentMediaIndex].image || media[currentMediaIndex].video;
     currentTitle = media[currentMediaIndex].title;
 
     let mediaElement;
-    if (currentMedia.endsWith('.mp4') || currentMedia.endsWith('.avi')) {
-        // Si c'est une vidéo
-        mediaElement = `<video id="media-display" class="portfolio__lightbox__card__media" controls src="../assets/img/Mimi/${currentMedia}" alt="video of ${currentTitle}"></video>`;
+    if (currentMedia.endsWith('.mp4')) {
+        mediaElement = `<video id="media-display" class="portfolio__lightbox__card__media" controls src="../assets/img/${firstName}/${currentMedia}" alt="video of ${currentTitle}"></video>`;
     } else {
-        // Si c'est une image
-        mediaElement = `<img id="media-display" class="portfolio__lightbox__card__media" src="../assets/img/Mimi/${currentMedia}" alt="photo of ${currentTitle}">`;
+        mediaElement = `<img id="media-display" class="portfolio__lightbox__card__media" src="../assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">`;
     }
 
     mediaContainer.innerHTML = mediaElement + `<h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>`;
@@ -59,7 +65,7 @@ function changeMedia(media) {
 
 
 
-export const previousMedia = (media) => {
+export const previousMedia = (media, photographers) => {
     const previousButton = document.querySelector("#previous-button");
     previousButton.addEventListener("click", () => {
         if (currentMediaIndex > 0) {
@@ -67,12 +73,12 @@ export const previousMedia = (media) => {
         } else {
             currentMediaIndex = media.length - 1;
         }
-        changeMedia(media);
+        changeMedia(media, photographers);
     });
 };
 
 
-export const nextMedia = (media) => {
+export const nextMedia = (media, photographers) => {
     const nextButton = document.querySelector("#next-button");
 
     nextButton.addEventListener("click", () => {
@@ -81,20 +87,20 @@ export const nextMedia = (media) => {
         } else {
             currentMediaIndex = 0;
         }
-        changeMedia(media);
+        changeMedia(media, photographers);
     });
 };
 
 
-export const carousel = (media) => {
-    previousMedia(media);
-    nextMedia(media);
+export const carousel = (media, photographers) => {
+    previousMedia(media, photographers);
+    nextMedia(media, photographers);
 };
 
-export const event = (media) => {
-    openLightbox(media);
+export const event = (media, photographers) => {
+    openLightbox(media, photographers);
     closeLightbox();
-    carousel(media);
+    carousel(media, photographers);
 };
 
 

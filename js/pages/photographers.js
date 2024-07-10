@@ -13,7 +13,7 @@ export const displayPage = (photographers, media) => {
     Sort.sortMedia(media);
 
     app.innerHTML = `
-        ${LightBox.render(media)}
+        ${LightBox.render(media, photographers)}
         ${PhotographerProfile.render(photographers)} 
         ${Sort.render(photographers, media)} 
         <section class="photographer-main__portfolio__gallery">
@@ -24,6 +24,7 @@ export const displayPage = (photographers, media) => {
 
     PhotographerProfile.event();
     Sort.event(photographers, media);
+    LightBox.event(media, photographers);
     PhotographerMedia.event(photographers, media);
 };
 
