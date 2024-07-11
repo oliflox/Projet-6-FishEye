@@ -5,7 +5,10 @@ export const render = (filterValue = "Popularité") => {
     <section class="photographer-main__portfolio">
         <h2 class="photographer-main__portfolio__filter-title">Trier par</h2>
         <div  id="dropdown" class="photographer-main__portfolio__filter__dropdown">
-            <p id="currentSortValue" class="photographer-main__portfolio__filter__dropdown__current" >${filterValue}</p>
+            <div id="currentSortValue" class="photographer-main__portfolio__filter__dropdown__current">
+                <p>${filterValue}</p>
+                <i id="dropdownArrow" class="fa-solid fa-angle-down"></i>
+            </div>
             <div id="dropDownSortContainer" class="photographer-main__portfolio__filter__dropdown__container hidden">
                 <p>Popularité</p>
                 <p>Date</p>
@@ -14,8 +17,9 @@ export const render = (filterValue = "Popularité") => {
         </div>
     </section>`;
 };
-
+ 
 const dropDownSort = (photographers, media) => {
+    const dropdown = document.querySelector("#dropdown");
     const currentSortValue = document.querySelector("#currentSortValue");
     const dropDownSortContainer = document.querySelector("#dropDownSortContainer");
     const sortOptions = dropDownSortContainer.querySelectorAll("p");
@@ -35,13 +39,14 @@ const dropDownSort = (photographers, media) => {
 
     currentSortValue.setAttribute('tabindex', '0');
     currentSortValue.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
+        if (event.key === 13) {
             dropDownSortContainer.classList.toggle("hidden");
         }
     });
 
-    currentSortValue.addEventListener("click", () => {
+    dropdown.addEventListener("click", () => {
         dropDownSortContainer.classList.toggle("hidden");
+        dropdown.classList.toggle("OpenDropdown");
     });
 
     dropDownSortContainer.addEventListener('click', (e) => {

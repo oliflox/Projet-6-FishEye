@@ -33,20 +33,39 @@ export const openLightbox = (media, photographers) => {
     const lightboxElements = document.querySelectorAll(".photographer-main__portfolio__gallery__card__preview");
     lightboxElements.forEach((element, index) => {
         element.addEventListener("click", (e) => {
-            currentMediaIndex = index;
-            document.querySelector(".portfolio__lightbox").classList.toggle("hidden");
-            document.body.classList.add("no-scroll");
-            changeMedia(media, photographers); 
+            openLightboxAction(index, media, photographers);
+        });
+
+        element.addEventListener("keydown", (e) => {
+            if (e.keyCode === 13) {
+                openLightboxAction(index, media, photographers);
+            }
         });
     });
+};
+
+const openLightboxAction = (index, media, photographers) => {
+    currentMediaIndex = index;
+    document.querySelector(".portfolio__lightbox").classList.toggle("hidden");
+    document.body.classList.add("no-scroll");
+    changeMedia(media, photographers);
 };
 
 export const closeLightbox = () => {
     const close = document.querySelector("#lightboxClose");
     const lightbox = document.querySelector(".portfolio__lightbox");
-    close.addEventListener("click", () => {
-        document.body.classList.remove("no-scroll"); 
+
+    const closeLightboxFunction = () => {
+        document.body.classList.remove("no-scroll");
         lightbox.classList.toggle("hidden");
+    };
+
+    close.addEventListener("click", closeLightboxFunction);
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeLightboxFunction();
+        }
     });
 };
 
@@ -70,13 +89,22 @@ function changeMedia(media, photographers) {
 
 export const previousMedia = (media, photographers) => {
     const previousButton = document.querySelector("#previous-button");
-    previousButton.addEventListener("click", () => {
+
+    const goToPreviousMedia = () => {
         if (currentMediaIndex > 0) {
             currentMediaIndex--;
         } else {
             currentMediaIndex = media.length - 1;
         }
         changeMedia(media, photographers);
+    };
+
+    previousButton.addEventListener("click", goToPreviousMedia);
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+            goToPreviousMedia();
+        }
     });
 };
 
@@ -84,13 +112,21 @@ export const previousMedia = (media, photographers) => {
 export const nextMedia = (media, photographers) => {
     const nextButton = document.querySelector("#next-button");
 
-    nextButton.addEventListener("click", () => {
+    const goToNextMedia = () => {
         if (currentMediaIndex < media.length - 1) {
-            currentMediaIndex++;
+            currentMediaIndex++; 
         } else {
             currentMediaIndex = 0;
         }
         changeMedia(media, photographers);
+    };
+
+    nextButton.addEventListener("click", goToNextMedia);
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+            goToNextMedia();
+        }
     });
 };
 
