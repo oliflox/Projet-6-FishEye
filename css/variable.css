@@ -54,8 +54,8 @@
 
     --lightbox-xPadding: 6.25rem;
     --lightbox-yPadding: 3.75rem;
-    --lightbox-image-width: 1050px;
-    --lightbox-image-height: 800px;
+    --lightbox-image-width: 950px;
+    --lightbox-image-height: 750px;
 }
 
 body {

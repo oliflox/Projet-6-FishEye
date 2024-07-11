@@ -57,7 +57,7 @@ export const closeLightbox = () => {
 
     const closeLightboxFunction = () => {
         document.body.classList.remove("no-scroll");
-        lightbox.classList.toggle("hidden");
+        lightbox.classList.add("hidden");
     };
 
     close.addEventListener("click", closeLightboxFunction);
