@@ -120,30 +120,30 @@
     font-weight: var(--font-bold);
     position: relative;
     cursor: pointer;
-    width: 120px;
-    padding: var(--spacing-md) var(--spacing-lg);
+    width: 150px;
+    padding: 0 var(--spacing-md);
 }
 
-.photographer-main__portfolio__filter__dropdown__current{
-   display: flex;
+.photographer-main__portfolio__filter__dropdown__current {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 12px 8px;
 }
 
-.photographer-main__portfolio__filter__dropdown__container{
+.photographer-main__portfolio__filter__dropdown__container {
     z-index: 1;
     position: absolute;
-    left: 0;
-    top: 50px;
-    display: flex;
+    left:0;
+    top: 45px;
+    list-style: none;
     width: 100%;
-    flex-direction: column;
-    border-radius: var(--global-radius);
-    padding:0 var(--spacing-md);
+    border-radius:0 0 var(--global-radius) var(--global-radius);
+    padding: 0 var(--spacing-md);
     background-color: var(--red);
 }
 
-.photographer-main__portfolio__filter__dropdown__container p{
+.dropdown-item{
     padding: 12px 8px;
     border-top: solid 1px white;
 }
@@ -181,15 +181,15 @@
     color: var(--red);
 }
 
-.photographer-main__portfolio__gallery__card__info__title{
+.photographer-main__portfolio__gallery__card__info__title {
     flex: 3;
 }
 
-.photographer-main__portfolio__gallery__card__likes{
+.photographer-main__portfolio__gallery__card__likes {
     flex: 1;
 }
 
-.photographer-main__portfolio__gallery__card__info__likes{
+.photographer-main__portfolio__gallery__card__info__likes {
     display: flex;
     gap: var(--spacing-xs);
     align-items: center;
@@ -207,7 +207,7 @@
     font-weight: var(--font-bold);
 }
 
-.photographer-main__pricetag__container{
+.photographer-main__pricetag__container {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
@@ -307,7 +307,7 @@
 }
 
 
-.portfolio__lightbox{
+.portfolio__lightbox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,33 +319,33 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    padding:40px 100px;
+    padding: 40px 100px;
 }
 
-.portfolio__lightbox__arrow{
+.portfolio__lightbox__arrow {
     font-size: 3rem;
     color: var(--red);
     cursor: pointer;
 }
 
-.portfolio__lightbox__card{
+.portfolio__lightbox__card {
     height: var(--lightbox-image-height);
     width: var(--lightbox-image-width);
 }
 
-.portfolio__lightbox__card__media{
+.portfolio__lightbox__card__media {
     width: 100%;
-    height: 100%;    
+    height: 100%;
     object-fit: cover;
 }
 
-.portfolio__lightbox__card__title{
+.portfolio__lightbox__card__title {
     font-size: var(--font-subtitle);
     font-weight: var(--font-normal);
     color: var(--red);
 }
 
-.portfolio__lightbox__right-container{
+.portfolio__lightbox__right-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -353,7 +353,7 @@
     height: 100%;
 }
 
-.portfolio__lightbox__close{
+.portfolio__lightbox__close {
     margin-top: 20px;
     font-size: 3rem;
     color: var(--red);
@@ -369,6 +369,10 @@
     overflow: hidden;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
+}
+
+.focused{
+    background-color: var(--lightred);
 }
