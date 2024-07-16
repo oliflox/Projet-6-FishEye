@@ -28,7 +28,7 @@ const dropDownSort = (photographers, media) => {
     const urlParams = new URLSearchParams(window.location.search);
     const sortValue = urlParams.get('sort') || "Popularité";
 
-    // Set the initial value
+
     currentSortValue.querySelector("p").textContent = sortValue;
 
     const updateDropdownMenu = () => {
