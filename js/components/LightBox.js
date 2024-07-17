@@ -32,7 +32,7 @@ export const render = (media, photographers) => {
 export const openLightbox = (media, photographers) => {
     const lightboxElements = document.querySelectorAll(".photographer-main__portfolio__gallery__card__preview");
     lightboxElements.forEach((element, index) => {
-        element.addEventListener("click", (e) => {
+        element.addEventListener("click", () => {
             openLightboxAction(index, media, photographers);
         });
 

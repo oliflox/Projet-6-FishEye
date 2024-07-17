@@ -1,0 +1,15 @@
+# Dossiers
+node_modules/
+dist/
+
+# Fichiers
+.DS_Store
+.env
+
+# Fichiers de configuration
+.eslintcache
+.eslintignore
+
+# Fichiers de dépendances
+package-lock.json
+yarn.lock
