@@ -6,8 +6,8 @@ export const render = (media, photographer,index) => {
     const firstName = name.split(" ")[0];
     
     const mediaContent = image 
-        ? `<img tabindex="0" class="photographer-main__portfolio__gallery__card__preview pointer" src="../assets/img/${firstName}/${image}" alt="${title}, closeup view">`
-        : `<video tabindex="0" class="photographer-main__portfolio__gallery__card__preview pointer" src="../assets/img/${firstName}/${video}" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" alt="${title}, video by ${name}"></video>`;
+        ? `<img tabindex="0" class="photographer-main__portfolio__gallery__card__preview pointer" src="assets/img/${firstName}/${image}" alt="${title}, closeup view">`
+        : `<video tabindex="0" class="photographer-main__portfolio__gallery__card__preview pointer" src="assets/img/${firstName}/${video}" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" alt="${title}, video by ${name}"></video>`;
 
     return `
     <div  class="photographer-main__portfolio__gallery__card">

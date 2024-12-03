@@ -17,7 +17,7 @@ export const render = (media, photographers) => {
     <div class="hidden portfolio__lightbox">
         <i id="previous-button" class="fa-solid fa-chevron-left portfolio__lightbox__arrow"></i>
         <div class="portfolio__lightbox__card">
-            <img id="image-display" class="portfolio__lightbox__card__media" src="../assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">
+            <img id="image-display" class="portfolio__lightbox__card__media" src="assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">
             <h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>
         </div>
         <div class="portfolio__lightbox__right-container">
@@ -77,9 +77,9 @@ function changeMedia(media, photographers) {
 
     let mediaElement;
     if (currentMedia.endsWith('.mp4')) {
-        mediaElement = `<video id="media-display" class="portfolio__lightbox__card__media" controls src="../assets/img/${firstName}/${currentMedia}" alt="video of ${currentTitle}"></video>`;
+        mediaElement = `<video id="media-display" class="portfolio__lightbox__card__media" controls src="assets/img/${firstName}/${currentMedia}" alt="video of ${currentTitle}"></video>`;
     } else {
-        mediaElement = `<img id="media-display" class="portfolio__lightbox__card__media" src="../assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">`;
+        mediaElement = `<img id="media-display" class="portfolio__lightbox__card__media" src="assets/img/${firstName}/${currentMedia}" alt="photo of ${currentTitle}">`;
     }
 
     mediaContainer.innerHTML = mediaElement + `<h3 id="title-display" class="portfolio__lightbox__card__title">${currentTitle}</h3>`;

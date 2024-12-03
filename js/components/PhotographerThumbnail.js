@@ -6,7 +6,7 @@ export const render = (photographer) => {
         <a class="main__grid__link" href="photographer.html?id=${id}">
             <div class="main__grid__card">
                 <div class="main__grid__card__profile">
-                    <img class="main__grid__card__profile__portrait" src="../assets/img/PhotographersID/${portrait}" alt="${name} profile's picture" />
+                    <img class="main__grid__card__profile__portrait" src="assets/img/PhotographersID/${portrait}" alt="${name} profile's picture" />
                     <h2 class="main__grid__card__profile__name">${name}</h2>
                 </div>
                 <div class="main__grid__card__info">

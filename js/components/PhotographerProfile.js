@@ -18,7 +18,7 @@ export const render = (photographer) => {
             </div>
         </div>
         <button id="contact-button" class="photographer-main__profile__contact button" alt="Contact me">Contactez-moi</button>
-        <img class="photographer-main__profile__portrait" src="../assets/img/PhotographersID/${portrait}" alt="${name}">
+        <img class="photographer-main__profile__portrait" src="assets/img/PhotographersID/${portrait}" alt="${name}">
     </section>
     ${ContactModal.contactPopUp(photographer)}
     `;
