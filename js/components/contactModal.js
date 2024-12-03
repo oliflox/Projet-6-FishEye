@@ -34,7 +34,8 @@ export const contactPopUp = (photographer) => {
             </form>
         </div>
     </section>
-`;};
+`;
+};
 
 
 export const event = () => {
@@ -72,7 +73,7 @@ export const event = () => {
             document.body.classList.toggle("no-scroll");
         }
     });
-    
+
 };
 
 
