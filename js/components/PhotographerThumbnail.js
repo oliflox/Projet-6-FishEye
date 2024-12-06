@@ -19,7 +19,7 @@ export const render = (photographer) => {
     `;
 };
 
-export const events = () => {};
+export const events = () => { };
 
 export default {
   render,

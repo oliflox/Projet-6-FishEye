@@ -9,7 +9,7 @@ function photographerName(photographers) {
 }
 
 export const render = (media, photographers) => {
-    let firstName = photographerName(photographers); 
+    let firstName = photographerName(photographers);
     let images = media.map(item => item.image);
     currentMedia = images[1];
     currentTitle = media[1].title;
@@ -70,7 +70,7 @@ export const closeLightbox = () => {
 };
 
 function changeMedia(media, photographers) {
-    let firstName = photographerName(photographers); 
+    let firstName = photographerName(photographers);
     const mediaContainer = document.querySelector(".portfolio__lightbox__card");
     currentMedia = media[currentMediaIndex].image || media[currentMediaIndex].video;
     currentTitle = media[currentMediaIndex].title;
@@ -114,7 +114,7 @@ export const nextMedia = (media, photographers) => {
 
     const goToNextMedia = () => {
         if (currentMediaIndex < media.length - 1) {
-            currentMediaIndex++; 
+            currentMediaIndex++;
         } else {
             currentMediaIndex = 0;
         }

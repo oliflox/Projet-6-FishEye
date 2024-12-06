@@ -16,8 +16,8 @@ const displayPage = (photographers) => {
         </header>
         <section class='main__grid'>
             ${photographers
-              .map((photographer) => PhotographerThumbnail.render(photographer))
-              .join("")}
+      .map((photographer) => PhotographerThumbnail.render(photographer))
+      .join("")}
         </section>
     `;
 };

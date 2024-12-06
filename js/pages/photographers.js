@@ -17,7 +17,11 @@ export const displayPage = (photographers, media) => {
         ${PhotographerProfile.render(photographers)} 
         ${Sort.render(photographers, media)} 
         <section class="photographer-main__portfolio__gallery">
-            ${media.map((mediaItem, index) => PhotographerMedia.render(mediaItem, photographers, index)).join("")}  
+            ${media
+            .map((mediaItem, index) =>
+                PhotographerMedia.render(mediaItem, photographers, index)
+            )
+            .join("")}  
         </section>
         ${GlobalLikes.render(photographers, media)}
     `;
@@ -32,10 +36,14 @@ export const displayPage = (photographers, media) => {
     const data = await getData();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const photographerId = urlParams.get('id');
+    const photographerId = urlParams.get("id");
 
-    const photographer = data?.photographers.find(photographer => photographer.id === parseInt(photographerId));
-    const media = data?.media.filter(media => media.photographerId === parseInt(photographerId));
+    const photographer = data?.photographers.find(
+        (photographer) => photographer.id === parseInt(photographerId)
+    );
+    const media = data?.media.filter(
+        (media) => media.photographerId === parseInt(photographerId)
+    );
 
     displayPage(photographer, media);
 })();

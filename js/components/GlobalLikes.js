@@ -1,9 +1,9 @@
 export const render = (photographer, media) => {
     const { price } = photographer ?? {};
-    
+
     const totalLikes = Array.isArray(media) ? media.reduce((acc, curr) => acc + curr.likes, 0) : 0;
 
-    return`
+    return `
     <div class="photographer-main__pricetag">
         <div class="photographer-main__pricetag__container">
             <p class="photographer-main__pricetag__like">${totalLikes}</p>
@@ -12,7 +12,7 @@ export const render = (photographer, media) => {
         <p class="photographer-main__pricetag__price">${price}€ / jour</p>
     </div>
     `
-}; 
+};
 
 export const event = (photographers, media) => {
     const updateTotalLikes = () => {
