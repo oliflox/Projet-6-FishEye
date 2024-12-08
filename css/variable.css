@@ -52,10 +52,8 @@
     --popup-title: 48px;
     --close-width: 4px;
 
-    --lightbox-xPadding: 6.25rem;
-    --lightbox-yPadding: 3.75rem;
-    --lightbox-image-width: 950px;
-    --lightbox-image-height: 750px;
+    --lightbox-image-width: 1050px;
+    --lightbox-image-height: 900px;
 }
 
 body {

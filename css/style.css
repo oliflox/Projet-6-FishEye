@@ -328,14 +328,9 @@
     cursor: pointer;
 }
 
-.portfolio__lightbox__card {
+.portfolio__lightbox__card__media {
     height: var(--lightbox-image-height);
     width: var(--lightbox-image-width);
-}
-
-.portfolio__lightbox__card__media {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
@@ -354,7 +349,6 @@
 }
 
 .portfolio__lightbox__close {
-    margin-top: 20px;
     font-size: 3rem;
     color: var(--red);
     cursor: pointer;
@@ -375,4 +369,10 @@
 
 .focused{
     background-color: var(--lightred);
+}
+
+@media (min-width: 1440px) {
+    .portfolio__lightbox__card__media {
+        height: 800px;
+    }
 }
