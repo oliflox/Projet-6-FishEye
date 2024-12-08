@@ -7,7 +7,7 @@ export const render = (photographer, media) => {
     <div class="photographer-main__pricetag">
         <div class="photographer-main__pricetag__container">
             <p class="photographer-main__pricetag__like">${totalLikes}</p>
-            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart" aria-label="Total likes"></i>
         </div>    
         <p class="photographer-main__pricetag__price">${price}€ / jour</p>
     </div>
@@ -56,14 +56,3 @@ export default {
     render,
     event
 };
-
-
-
-
-
-
-
-/*  
-- chaque media a une valeur qui peut changer, leurs valeurs initial sont celles du fichier donc la variable likes
-- chaque media a un bouton like qui permet d'ajouter un like
-*/

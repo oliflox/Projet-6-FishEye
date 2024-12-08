@@ -9,10 +9,12 @@ const displayPage = (photographers) => {
 
   app.innerHTML = `
         <header class="header">
-            <a href="index.html" class="header__link">
-                <img class="header__logo" src="assets/icon/logo.png" alt="FishEye Home page">
-            </a>
-            <h1 class="header__title">Nos photographes</h1>
+          <nav class="header__nav">
+              <a href="index.html" class="header__link">
+                  <img class="header__logo" src="assets/icon/logo.png" alt="FishEye Home page">
+              </a>
+              <h1 class="header__title">Nos photographes</h1>
+          </nav>
         </header>
         <section class='main__grid'>
             ${photographers

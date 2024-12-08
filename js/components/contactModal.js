@@ -1,4 +1,3 @@
-
 export const contactPopUp = (photographer) => {
     const { name } = photographer;
     return `
@@ -30,7 +29,7 @@ export const contactPopUp = (photographer) => {
                     <p id="emailError" class="error hidden">Veuillez saisir une adresse mail valide</p>
                 </div>
                 <input class="button submit-button" type="submit" value="Envoyer" />
-                <span tabindex="0" id="close-modal" class="close"></span>
+                <span tabindex="0" id="close-modal" class="close" aria-label="Close contact form"></span>
             </form>
         </div>
     </section>
@@ -50,6 +49,11 @@ export const event = () => {
     const form = document.querySelector("#contact-form");
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+        const firstName = document.querySelector("#firstName").value;
+        const lastName = document.querySelector("#lastName").value;
+        const email = document.querySelector("#email").value;
+        const message = document.querySelector("textarea[name='textarea']").value;
+        console.log(`First Name: ${firstName}, Last Name: ${lastName}, Email: ${email}, Message: ${message}`);
         popUp.classList.toggle("hidden");
         document.body.classList.toggle("no-scroll");
     });
