@@ -1,7 +1,5 @@
 import ContactModal from "./ContactModal.js";
 
-console.log("ContactModal import path:", "./ContactModal.js");
-
 export const render = (photographer) => {
   const { name, city, country, tagline, portrait } = photographer ?? {};
   document.title = name + "'s profile";
