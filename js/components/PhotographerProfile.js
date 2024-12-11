@@ -4,11 +4,14 @@ export const render = (photographer) => {
   const { name, city, country, tagline, portrait } = photographer ?? {};
   document.title = name + "'s profile";
   return `
-     <header class="header">
-        <a href="index.html" class="header__link">
-            <img class="header__logo" src="assets/icon/logo.png" alt="FishEye Home page">
-        </a>
-    </header>
+      <header class="header">
+          <nav class="header__nav">
+              <a href="index.html" class="header__link">
+                  <img class="header__logo" src="assets/icon/logo.png" alt="FishEye Home page">
+              </a>
+              <h1 class="header__title">Nos photographes</h1>
+          </nav>
+        </header>
     <section class="photographer-main__profile" id="photographer-main__profile"> 
         <div class="photographer-main__profile__card">
             <h1 class="photographer-main__profile__card__name">${name}</h1>
