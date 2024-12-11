@@ -9,7 +9,6 @@ export const render = (photographer) => {
               <a href="index.html" class="header__link">
                   <img class="header__logo" src="assets/icon/logo.png" alt="FishEye Home page">
               </a>
-              <h1 class="header__title">Nos photographes</h1>
           </nav>
         </header>
     <section class="photographer-main__profile" id="photographer-main__profile"> 
