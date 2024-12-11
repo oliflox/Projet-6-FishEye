@@ -1,4 +1,4 @@
-import ContactModal from "../Projet-6-FishEye/js/components/ContactModal.js";
+import ContactModal from "./ContactModal.js";
 
 export const render = (photographer) => {
   const { name, city, country, tagline, portrait } = photographer ?? {};
