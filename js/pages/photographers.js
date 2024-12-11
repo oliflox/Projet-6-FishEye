@@ -5,8 +5,6 @@ import Sort from "../components/Sort.js";
 import GlobalLikes from "../components/GlobalLikes.js";
 import LightBox from "../components/LightBox.js";
 
-console.log("PhotographerProfile import path:", "../components/PhotographerProfile.js"); // Log the import path
-
 export const displayPage = (photographers, media) => {
     if (!photographers || !media) return;
 
