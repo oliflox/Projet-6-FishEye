@@ -6,7 +6,7 @@ export const render = (photographer) => {
   return `
      <header class="header">
         <a href="index.html" class="header__link">
-            <img class="header__logo" src="../assets/icon/logo.png" alt="FishEye Home page">
+            <img class="header__logo" src="assets/icon/logo.png" alt="FishEye Home page">
         </a>
     </header>
     <section class="photographer-main__profile" id="photographer-main__profile"> 
