@@ -1,4 +1,4 @@
-import { getData } from "/Projet-6-FishEye/js/utils/api.js";
+import { getData } from "../utils/api.js";
 import PhotographerProfile from "../components/PhotographerProfile.js";
 import PhotographerMedia from "../components/PhotographerMedia.js";
 import Sort from "../components/Sort.js";

@@ -1,4 +1,4 @@
-const BASE_URL = "data/photographers.json"; 
+const BASE_URL = "../data/photographers.json"; 
 
 export const getData = async () => {
   const response = await fetch(BASE_URL, {
