@@ -4,7 +4,7 @@ export const render = (photographer) => {
 
   return `
         <a class="main__grid__link" href="photographer.html?id=${id}">
-            <article class="main__grid__card">
+            <div class="main__grid__card">
                 <div class="main__grid__card__profile">
                     <img class="main__grid__card__profile__portrait" src="assets/img/PhotographersID/${portrait}" alt="${name} profile's picture" />
                     <h2 class="main__grid__card__profile__name">${name}</h2>
@@ -14,7 +14,7 @@ export const render = (photographer) => {
                     <p class="main__grid__card__info__tagline">${tagline}</p>
                     <p class="main__grid__card__info__price">${price}€/jour</p>
                 </div>
-            </article>
+            </div>
         </a>
     `;
 };
